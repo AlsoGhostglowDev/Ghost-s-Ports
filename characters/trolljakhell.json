@@ -1,0 +1,80 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 16,
+			"anim": "idle",
+			"indices": [],
+			"name": "trolljak idle"
+		},
+		{
+			"offsets": [
+				-10,
+				0
+			],
+			"loop": false,
+			"fps": 20,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "trolljak left"
+		},
+		{
+			"offsets": [
+				-10,
+				-10
+			],
+			"loop": false,
+			"fps": 20,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "trolljak down"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 20,
+			"anim": "singUP",
+			"indices": [],
+			"name": "trolljak up"
+		},
+		{
+			"offsets": [
+				70,
+				0
+			],
+			"loop": false,
+			"fps": 20,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "trolljak right"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/trolljakhell",
+	"position": [
+		-100,
+		-150
+	],
+	"healthicon": "trolljak",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		101,
+		81
+	],
+	"camera_position": [
+		210,
+		100
+	],
+	"sing_duration": 6.1,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

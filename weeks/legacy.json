@@ -1,0 +1,32 @@
+{
+	"songs": [
+		[
+			"Legacy",
+			"ifu",
+			[
+				66,
+				0,
+				0
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "",
+	"weekCharacters": [
+		"",
+		"bf",
+		""
+	],
+	"storyName": "Friday Night Crunchin'",
+	"weekName": "Custom Week",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
