@@ -43,7 +43,7 @@ function onCreate() {
     ifure.animation.play('idle');
     ifure.alpha = 0.15;
 
-    brimstone = new FlxSprite(-600, -700, Paths.image(root + '/brimstone'));
+    brimstone = new FlxSprite(-500, -700, Paths.image(root + '/brimstone'));
     setScale(brimstone, 2, 2);
 
     ifuPillar = new FlxBackdrop(Paths.image(root + '/darkpillar'), 0x10, 0, -30);
@@ -58,7 +58,7 @@ function onCreate() {
     game.addBehindGF(ifuPillar);
 
     for (i in 0...3) {
-        var pillar = new FlxSprite(-200, 1500, Paths.image(root + ['/farpillar', '/midpillar', '/closepillar'][i]));
+        var pillar = new FlxSprite(-220, 1500, Paths.image(root + ['/farpillar', '/midpillar', '/closepillar'][i]));
         setScale(pillar, 1, 1.1);
         pillar.scrollFactor.set((1 - (0.05 * i)), 0.8);
         game.addBehindGF(pillar);
@@ -68,7 +68,7 @@ function onCreate() {
 }
 
 function onCreatePost() {
-    platform = new FlxSprite((game.boyfriend.x + game.boyfriend.offset.x)-100, game.boyfriend.y + game.boyfriend.offset.y + 275).loadGraphic(Paths.image(root + '/legacy_platform'));
+    platform = new FlxSprite((game.boyfriend.x + game.boyfriend.offset.x)-100, 0).loadGraphic(Paths.image(root + '/legacy_platform'));
     game.addBehindDad(platform);
     
     //game.camGame.zoom = 0.15;
@@ -112,7 +112,7 @@ function onStepHit() {
         case 1040: camBop = 2*4;
         case 1048: game.defaultCamZoom = 0.65; setVar('duet', true);
         case 1056: FlxTween.tween(game.opponentStrums.members[2], {y: ClientPrefs.data.downscroll ? -200 : (FlxG.height + 200)}, 1, {ease: FlxEase.expoOut}); camBop = 4*4;
-        case 1060: FlxTween.tween(game.opponentStrums.members[1], {y: ClientPrefs.data.downscroll ? -200 : (FlxG.height + 200)}, 1, {ease: FlxEase.expoOut}); game.gf.visible = false; game.gfGroup.x -= 100; game.gfGroup.y += 210; 
+        case 1060: FlxTween.tween(game.opponentStrums.members[1], {y: ClientPrefs.data.downscroll ? -200 : (FlxG.height + 200)}, 1, {ease: FlxEase.expoOut}); game.gf.visible = false; game.gfGroup.y += 210; 
         case 1064: FlxTween.tween(game.opponentStrums.members[0], {y: ClientPrefs.data.downscroll ? -200 : (FlxG.height + 200)}, 1, {ease: FlxEase.expoOut});
         case 1072: FlxTween.tween(game.opponentStrums.members[3], {y: ClientPrefs.data.downscroll ? -200 : (FlxG.height + 200)}, 1, {ease: FlxEase.expoOut});
         case 1104: 
@@ -166,7 +166,7 @@ function onBeatHit() {
 var time = 0;
 var dumb:FlxTween;
 var targPlayback:Float = 1;
-var lmao = false;
+var lmao = true;
 function onUpdatePost(elapsed) {
     time += elapsed;
     brimstone.alpha = 0.75 + (Math.sin(time) * 0.25);
@@ -175,15 +175,17 @@ function onUpdatePost(elapsed) {
     flycrowave.y = Math.sin(time*0.15) * 250;
 
     if (lmao) {
-        targPlayback = (FlxG.keys.pressed.SPACE) ? 3 : 1;
+        targPlayback = (FlxG.keys.pressed.SPACE) ? 5 : 1;
         if (dumb!=null) dumb.cancel();
-        dumb = FlxTween.num(game.playbackRate, targPlayback, 0.05, {ease: FlxEase.cubeInOut}, (num)->{game.playbackRate = CoolUtil.floorDecimal(num, 2);});
-
-        debugPrint(game.playbackRate);
+        dumb = FlxTween.num(game.playbackRate, targPlayback, 0.05, {ease: FlxEase.cubeInOut}, (num)->{game.playbackRate = CoolUtil.floorDecimal(num, 3);});
     }
 
     if (game.curStep >= 1104)
         game.defaultCamZoom = (gfSection || getVar('duet')) ? 0.475 : (mustHitSection ? 0.535 : 0.5);
+
+    
+    boyfriend.y = 400 + (Math.sin(time)*20);
+    platform.y = 680 + (Math.sin(time)*20);
 
     return;
 }

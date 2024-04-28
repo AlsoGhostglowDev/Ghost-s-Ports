@@ -1,6 +1,6 @@
 {
-	"name": "Name",
-	"description": "Description",
+	"name": "Ghost's Ports",
+	"description": "A collection of ghostglowdev's Ports",
 	"restart":false,
 	"runsGlobally": false,
 	"color": [170, 0, 255],
